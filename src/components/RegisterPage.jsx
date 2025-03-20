@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../utils/AuthContext"; // Adjust the path as needed
-
+import { Link } from "react-router-dom";
 const registerSchema = z.object({
   username: z.string().min(1, "Username is required"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -34,7 +34,7 @@ const RegisterPage = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Sign In
+          Register
         </h2>
 
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -89,13 +89,13 @@ const RegisterPage = () => {
         </form>
 
         <div className="mt-6 text-center text-sm text-gray-600">
-          Don't have an account?
-          <a
-            href="#"
+          Already have an account?
+          <Link
+            to="/login"
             className="text-indigo-600 hover:text-indigo-500 font-medium"
           >
-            Sign up
-          </a>
+            Sign in
+          </Link>
         </div>
       </div>
     </div>
